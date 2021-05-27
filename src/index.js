@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Skeleton from "react-loading-skeleton";
 import { isBefore } from "date-fns";
+import FirebaseContext from './context/firebase';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<FirebaseContext><App /></FirebaseContext>, document.getElementById("root"));
 
 
 //Clieent rendered: app:react )ccra)
@@ -21,7 +22,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
    // services
     //(firebase function in here)
     //stylles (talwind's foldeer (app/tailwind()))
-    // ***lasst place 37mmin firebase
+    // ***lasst place 43
     /**
      Production rules when done, test lests us read and write to firestore(basically anything while in dev),need test mode for sead file to write to database at first
 rules_version = '2';
