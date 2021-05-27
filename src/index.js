@@ -4,8 +4,9 @@ import App from "./App";
 import Skeleton from "react-loading-skeleton";
 import { isBefore } from "date-fns";
 import FirebaseContext from './context/firebase';
+import { Firebase, FieldValue } from './lib/firebase'
 
-ReactDOM.render(<FirebaseContext><App /></FirebaseContext>, document.getElementById("root"));
+ReactDOM.render(<FirebaseContext.Provider value={{firebase, fieldValue}}><App /></FirebaseContext.Provider>, document.getElementById("root"));
 
 
 //Clieent rendered: app:react )ccra)
