@@ -1,7 +1,8 @@
-import Firebase from 'fitebase/app';
+import Firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+import { seedDatabase } from '../seed'
 
 const config = {
 apiKey: "AIzaSyBXbLzdhzXDAKkTeZnKFeu2UFaMIfYOXjw",
@@ -14,6 +15,6 @@ appId: "1:489144342309:web:c5f80ae4580e6b3233accc"
 const firebase = Firebase.initializeApp(config);
 const { FieldValue } = Firebase.firestore;
 //here is where i want to call  seetfile (only Once!)
-//seadatabase(firebae)
+seedDatabase(firebase);
 
 export {firebase, FieldValue }
