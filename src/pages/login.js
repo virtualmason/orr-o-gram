@@ -12,6 +12,8 @@ export default function Login() {
 
 useEffect(() => {
     document.title = 'Login - Orr-O-Gram';
-})//add[] so it runs only wwhen varible changes
-    return <p>I am the login page</p>
+},[])//add[] so it runs only wwhen varible changes
+    return (
+        <div className="container flex mx-auto mx-auto max-w-screen-md items-center h-screen"></div>
+    )
 }
