@@ -24,7 +24,7 @@ ReactDOM.render(<FirebaseContext.Provider value={{firebase, FieldValue}}><App />
    // services
     //(firebase function in here)
     //stylles (talwind's foldeer (app/tailwind()))
-    // ***lasst place 127
+    // ***lasst place 2:00
     /**
      Production rules when done, test lests us read and write to firestore(basically anything while in dev),need test mode for sead file to write to database at first
 rules_version = '2';

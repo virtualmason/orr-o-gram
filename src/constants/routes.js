@@ -1,4 +1,4 @@
-export const DASHBOARD = "/";
+export const DASHBOARD = "/dashboard";
 export const LOGIN = "/login";
 export const SIGN_UP = "/signup"; //p/karl(:usernam), geet me:username =karl
 export const PROFILE = "/p/:username";

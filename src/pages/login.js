@@ -1,19 +1,31 @@
 import { useState, useContext, useEffect} from 'react';
 import FirebaseContext from '../context/firebase';
 import { useHistory, Link } from "react-router-dom";
+import Signup from './signup';
+import * as ROUTES from '../constants/routes';
 
 export default function Login() {
     const history = useHistory();
     const { firebase } = useContext(FirebaseContext)
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError ] = useState('');
     const isInvalid = password === '' || emailAddress ==='';
     
 
 
-const handleLogin =() => {
-    return null;
+const handleLogin = async (event) => {
+    event.preventDefault();
+   try {
+       await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
+       history.push(ROUTES.DASHBOARD)
+
+   } catch (error) {
+       setEmailAddress('');
+       setPassword('');
+       setError(error.message)
+
+   }
 
 }
 useEffect(() => {
@@ -58,8 +70,7 @@ useEffect(() => {
     <Link to="/signup" className="font-bold text-blue-medium">Sign up</Link>
              </div>
         </div>
+        
       </div>
     )
 }
-//text-red-primary = hex falues
-//text-gray-base-> hex values
