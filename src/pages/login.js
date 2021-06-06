@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect} from 'react';
 import FirebaseContext from '../context/firebase';
 import { useHistory, Link } from "react-router-dom";
-import Signup from './sign-up';
 import * as ROUTES from '../constants/routes';
 
 export default function Login() {

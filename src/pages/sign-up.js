@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect} from 'react';
-import FirebaseContext from '../context/firebase';
 import { useHistory, Link } from "react-router-dom";
-import doesUsernameExist from '../services/firebase'
+import FirebaseContext from '../context/firebase';
+import {doesUsernameExist} from '../services/firebase'
 import * as ROUTES from '../constants/routes';
 
 export default function SignUp() {
@@ -19,6 +19,16 @@ export default function SignUp() {
 const handleSignup = async (event) => {
     event.preventDefault();
      const usernameExists = await doesUsernameExist(username);
+    //  if(usernameExists) {
+    //    try {
+    //      const usernameExist = await firebase
+    //      .auth()
+    //      .createWithEmailAndPassword(emailAddress, passoword)
+    //      //authentication
+    //         //»»»»»»emailAddress & password & usrname (display)
+    //         awaire
+    //    } catch (error) {}
+    //  }
  
 
 }
@@ -84,7 +94,7 @@ useEffect(() => {
              </div>
              <div className="flex mt-4 justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
     <p className="text-sm">Have an account?{' '}</p>
-    <Link to={ROUTES.LOGIN} className="font-bold text-blue-medium">Sign up</Link>
+    <Link to={ROUTES.LOGIN} className="font-bold text-blue-medium">Sign In</Link>
              </div>
         </div>
         
