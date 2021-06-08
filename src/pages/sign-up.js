@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import FirebaseContext from '../context/firebase';
 import {doesUsernameExist} from '../services/firebase'
 import * as ROUTES from '../constants/routes';
+import { differenceInCalendarQuarters } from 'date-fns';
 
 export default function SignUp() {
     const history = useHistory();
@@ -15,20 +16,41 @@ export default function SignUp() {
     const isInvalid = password === '' || emailAddress ==='';
     
 
-
+//300,tube@tube.com,tubbe ttube
 const handleSignup = async (event) => {
     event.preventDefault();
      const usernameExists = await doesUsernameExist(username);
-    //  if(usernameExists) {
-    //    try {
-    //      const usernameExist = await firebase
-    //      .auth()
-    //      .createWithEmailAndPassword(emailAddress, passoword)
-    //      //authentication
-    //         //»»»»»»emailAddress & password & usrname (display)
-    //         awaire
-    //    } catch (error) {}
-    //  }
+     if(!usernameExists.length) {
+       try {
+         const createdUserResult = await firebase
+         .auth()
+         .createUserWithEmailAndPassword(emailAddress, password);
+         //authentication
+            //»»»»»»emailAddress & password & usrname (display)
+            await createdUserResult.user.updateProfile({
+              displayName: username
+            })
+
+            await firebase.firestore().collection('users').add({
+              userId: createdUserResult.user.uid,
+              username: username.toLowerCase(),
+              fullName,
+              emailAddress: emailAddress.toLowerCase(),
+              following: [],
+              dateCreated: Date.now()
+            })
+            history.push(ROUTES.DASHBOARD)
+       } catch (error) {
+         setFullName('');
+         setEmailAddress('');
+         setPassword('');
+         setError(error.message)
+
+       }
+     } else {
+       setError('Tha user name already taken, plase try another')
+
+     }
  
 
 }
