@@ -4,7 +4,6 @@ import FirebaseContext from "../context/firebase";
 import { doesUsernameExist } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
 import { differenceInCalendarQuarters } from "date-fns";
-
 export default function SignUp() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
@@ -15,7 +14,6 @@ export default function SignUp() {
   const [error, setError] = useState("");
   const isInvalid = password === "" || emailAddress === "";
 
-  //300,tube@tube.com,tubbe ttube
   const handleSignup = async (event) => {
     event.preventDefault();
     const usernameExists = await doesUsernameExist(username);
