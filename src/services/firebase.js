@@ -11,7 +11,6 @@ export async function doesUsernameExist(username) {
   return result.docs.map((user) => user.data().length > 0);
 }
 
-//228
 //test@test.com, test123
 //Karl Hadwen
 //(lowrcase) karl
