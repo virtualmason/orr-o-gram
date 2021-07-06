@@ -33,7 +33,7 @@
     "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.2.4"
   },
   "scripts": {
     "build:css": "postcss src/styles/tailwind.css -o src/styles/app.css",

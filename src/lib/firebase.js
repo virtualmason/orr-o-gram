@@ -3,6 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 // import { seedDatabase } from '../seed'
 const config = {
+   
  
 };
 

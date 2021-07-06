@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import { doesUsernameExist } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
-import { differenceInCalendarQuarters } from "date-fns";
 export default function SignUp() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
