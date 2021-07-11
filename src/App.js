@@ -12,7 +12,6 @@ const Header = lazy(() => import("./components/header"))
 
 export default function App() {
   const { user } =  useAuthListener();
- 
   
   return (
     <userContext.Provider value={user}>

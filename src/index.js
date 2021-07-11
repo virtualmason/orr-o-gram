@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Skeleton from "react-loading-skeleton";
-import { isBefore } from "date-fns";
 import FirebaseContext from "./context/firebase";
 import { firebase, FieldValue } from "./lib/firebase";
 import "./styles/app.css";
@@ -14,4 +12,3 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-//330
