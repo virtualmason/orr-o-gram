@@ -30,10 +30,9 @@ const User = ({ username, fullName }) => {
     </Link>
   );
 };
+export default memo(User);
 
 User.propTypes = {
   username: PropTypes.string.isRequired,
   fullName: PropTypes.string.isRequired,
 };
-
-export default memo(User);

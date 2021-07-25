@@ -21,7 +21,7 @@ export default function SignUp() {
         const createdUserResult = await firebase
           .auth()
           .createUserWithEmailAndPassword(emailAddress, password);
-        
+
         await createdUserResult.user.updateProfile({
           displayName: username,
         });
@@ -60,7 +60,7 @@ export default function SignUp() {
         <div className="flex flex-col">
           <h1 className="flex justify-center w-full">
             <img
-              src="/images/logo.png"
+              src="/images/newLogo.png"
               alt="Instagram"
               className="mt-2 w-6/12 mb-4"
             />
