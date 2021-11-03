@@ -1,17 +1,17 @@
 import { useState } from "react";
-// import {
-//   updatedLoggedInUserFollowing,
-//   updatedFollowedUserFollowers,
-// } from "../../services/firebase";
+import {
+  updatedLoggedInUserFollowing,
+  updatedFollowedUserFollowers,
+} from "../../services/firebase";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function SuggestedProfile({
-  userDocId,
+  profileDocId,
   username,
   profileId,
   userId,
-  // loggedInUserDocId,
+  loggedInUserDocId,
   // profiledId,
   // getUserByUserId,
 }) {
@@ -21,8 +21,13 @@ export default function SuggestedProfile({
 
   async function handleFollowUser() {
     setFollowed(true);
-    // await updatedLoggedInUserFollowing(loggedInUserDocId, profiledId, false);
-    // await updatedFollowedUserFollowers(profileId, userId, false);
+    await updatedLoggedInUserFollowing(loggedInUserDocId, profileId, false);
+    await updatedFollowedUserFollowers(
+      loggedInUserDocId,
+      profileDocId,
+      userId,
+      false
+    );
     // const [user] = await getUserByUserId(userId);
     // setActiveUser(user);
   }
@@ -53,7 +58,7 @@ export default function SuggestedProfile({
 }
 
 SuggestedProfile.propTypes = {
-  userDocId: PropTypes.string.isRequired,
+  profileDocId: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   profileId: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,

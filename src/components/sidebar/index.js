@@ -5,13 +5,17 @@ import React, { memo } from "react";
 
 export default function Sidebar() {
   const {
-    user: { username, fullName, userId, following },
+    user: { docId, username, fullName, userId, following },
   } = useUser();
-  console.log(following);
+  console.log(docId);
   return (
     <div className="p-4">
       <User username={username} fullName={fullName} />
-      <Suggestions userId={userId} following={following} />
+      <Suggestions
+        userId={userId}
+        following={following}
+        loggedInUserDocId={docId}
+      />
     </div>
   );
 }
