@@ -11,19 +11,19 @@ export default function SuggestedProfile({
   username,
   profileId,
   userId,
-  loggedInUserDocId,
-  profiledId,
-  getUserByUserId,
+  // loggedInUserDocId,
+  // profiledId,
+  // getUserByUserId,
 }) {
   console.log(username);
   const [followed, setFollowed] = useState(false);
   // const { setActiveUser } = useContext(LoggedInUserContext);
 
   async function handleFollowUser() {
-    setFollowed(false);
+    setFollowed(true);
     // await updatedLoggedInUserFollowing(loggedInUserDocId, profiledId, false);
     // await updatedFollowedUserFollowers(profileId, userId, false);
-    const [user] = await getUserByUserId(userId);
+    // const [user] = await getUserByUserId(userId);
     // setActiveUser(user);
   }
 
@@ -36,7 +36,7 @@ export default function SuggestedProfile({
           alt="profile pic"
         />
         <Link to={`/p/${username}`}>
-          <p className="font-bold text-sm">'{username}'</p>
+          <p className="font-bold text-sm">{username}</p>
         </Link>
       </div>
       <div>
