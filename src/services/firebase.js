@@ -40,7 +40,8 @@ export async function updatedLoggedInUserFollowing(
   profileId,
   isFollowingProfile
 ) {
-  return firebase()
+  return firebase
+    .firestore()
     .collection("users")
     .doc(loggedInUserDocId)
     .update({
@@ -56,7 +57,8 @@ export async function updatedFollowedUserFollowers(
   loggedInUserDocId,
   isFollowingProfile
 ) {
-  return firebase()
+  return firebase
+    .firestore()
     .collection("users")
     .doc(profileDocId)
     .update({
