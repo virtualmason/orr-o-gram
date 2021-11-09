@@ -12,12 +12,8 @@ export default function SuggestedProfile({
   profileId,
   userId,
   loggedInUserDocId,
-  // profiledId,
-  // getUserByUserId,
 }) {
-  console.log(username);
   const [followed, setFollowed] = useState(false);
-  // const { setActiveUser } = useContext(LoggedInUserContext);
 
   async function handleFollowUser() {
     setFollowed(true);
@@ -28,8 +24,6 @@ export default function SuggestedProfile({
       userId,
       false
     );
-    // const [user] = await getUserByUserId(userId);
-    // setActiveUser(user);
   }
 
   return !followed ? (
